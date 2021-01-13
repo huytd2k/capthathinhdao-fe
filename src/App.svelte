@@ -1,11 +1,17 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
+  import axios from "axios";
   export let date;
 
   onMount(async () => {
-    const res = await fetch("/api/date");
-    const newDate = await res.text();
-    date = newDate;
+    const rest = await axios.get(
+      "http://testthathinhdao.azurewebsites.net/api/caption?type=both"
+    );
+    console.log(rest);
+    const res = await fetch(
+      "http://testthathinhdao.azurewebsites.net/api/caption?type=both"
+    );
+    date = res.json();
   });
 </script>
 
@@ -22,9 +28,7 @@
     <a
       href="https://github.com/vercel/vercel/tree/master/examples/svelte"
       target="_blank"
-      rel="noreferrer noopener">
-      This project
-    </a>
+      rel="noreferrer noopener"> This project </a>
     is a
     <a href="https://svelte.dev/">Svelte</a>
     app with three directories,
@@ -44,5 +48,5 @@
   </p>
   <br />
   <h2>The date according to Node.js is:</h2>
-  <p>{date ? date : 'Loading date...'}</p>
+  <p>{date ? date : "Loading date..."}</p>
 </main>
