@@ -23,6 +23,20 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
+"@icons-pack/svelte-simple-icons@^1.10.1":
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/@icons-pack/svelte-simple-icons/-/svelte-simple-icons-1.10.1.tgz#d5281d4f633250d3ba1d545060a45b15f9483965"
+  integrity sha512-xvKhMEdTTpsxd3VaZyp+TdYqayAhZwqm7x+c0bNBxeCJVvjTte+CkRST1r5nZjBRAMjkdOYgXCf3aCj5R58NaA==
+  dependencies:
+    svelte "^3.23.2"
+
+"@lottiefiles/svelte-lottie-player@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/svelte-lottie-player/-/svelte-lottie-player-0.1.4.tgz#911825ee969214ee5ddfac9ef9ef681b2cf98c05"
+  integrity sha512-NVNDdB1kQLIOytWsTxEYRRHhl2T9oZFfKSkUEr8m73JM7jaLP8J8GGH9B6A0vXU4wKsjR69ET6JEvib6z1QH+g==
+  dependencies:
+    lottie-web "^5.6.8"
+
 "@polka/url@^1.0.0-next.9":
   version "1.0.0-next.11"
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.11.tgz#aeb16f50649a91af79dbe36574b66d0f9e4d9f71"
@@ -981,6 +995,11 @@ lodash@^4.0.0, lodash@^4.17.15, lodash@~4.17.10:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
+lottie-web@^5.6.8:
+  version "5.7.5"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.7.5.tgz#92d72de9d94c733ac21ce613a5f3fc21ebe3f92c"
+  integrity sha512-jXgxG5od5F1QkTItb8wMej3aFEQ+tg95jma33GBDn1K3kRfy9zXXG+F62B440wphCdwY5sjg6h6664L5dvnuWw==
+
 loud-rejection@^1.0.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/loud-rejection/-/loud-rejection-1.6.0.tgz#5b46f80147edee578870f086d04821cf998e551f"
@@ -1789,6 +1808,11 @@ svelte-check@^1.0.0:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
+svelte-loading-spinners@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/svelte-loading-spinners/-/svelte-loading-spinners-0.1.4.tgz#e752240c7220ed311df5d8d5e28541d2a9de6017"
+  integrity sha512-r/0Hs9cxtRLh2RwBwwEat1V1M1kypaGFPllM7XdZSH299JTed994B6zMHJ1Z5Ug8B9Tl2bs+VOy8Vz5EFWy5Ww==
+
 svelte-materialify@^0.3.4:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/svelte-materialify/-/svelte-materialify-0.3.4.tgz#53bf1701c543f90e13b9f823ce123053ce1e3c35"
@@ -1813,6 +1837,11 @@ svelte@^3.0.0:
   version "3.29.7"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.29.7.tgz#e254eb2d0d609ce0fd60f052d444ac4a66d90f7d"
   integrity sha512-rx0g311kBODvEWUU01DFBUl3MJuJven04bvTVFUG/w0On/wuj0PajQY/QlXcJndFxG+W1s8iXKaB418tdHWc3A==
+
+svelte@^3.23.2:
+  version "3.31.2"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.31.2.tgz#d2ddf6cacbb95e4cc3796207510b660a25586324"
+  integrity sha512-TxZGrXzX2ggFH3BIKY5fmbeMdJuZrMIMDYPMX6R9255bueuYIuVaBQSLUeY2oD7W4IdeqRZiAVGCjDw2POKBRA==
 
 tar@^6.0.2:
   version "6.1.0"

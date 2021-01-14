@@ -1,12 +1,19 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import axios from "axios";
-  import { Button } from "svelte-materialify";
+  import TealButton from "./common/button/TealButton.svelte";
   import { Router, Link, Route } from "svelte-routing";
   import AddQuote from "./add-quote/AddQuote.svelte";
+  import Tailwindcss from "./Tailwind.svelte";
+  import { Moon } from "svelte-loading-spinners";
+  import Caption from "./common/text/Caption.svelte";
+  import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
+  import { Azurefunctions, Svelte, Mongodb } from "@icons-pack/svelte-simple-icons";
+
   export let url = "";
 
   type quoteType = "male" | "female" | "both";
+  let type: quoteType = "both";
   export let date;
   let loading: boolean = true;
 
@@ -19,6 +26,7 @@
   });
 
   const select = (_type: quoteType) => async () => {
+    type = _type;
     loading = true;
     date = (
       await axios.get(
@@ -29,41 +37,29 @@
   };
 </script>
 
-<main>
-  <Router {url}>
-  <Link to='/add'> Add </Link>
-    <Route path="/add">
-      <AddQuote />
-    </Route>
-    <Route path="/">
-      <div>
-        <h1>Capthathinhdao</h1>
+<main class="flex flex-col min-h-screen">
+  <body class="">
+    <Router {url}>
+      <Route path="/add">
+        <AddQuote />
+      </Route>
+      <Route path="/">
+        <h1 class="text-2xl text-teal-500 font-semibold mt-12">Capthathinhdao</h1>
         <br />
-        {#if !loading}
-          <Button
-            on:click={select("male")}
-            disabled={loading}
-            class="teal white-text"
-            depressed
-          >Nam</Button
-          >
-          <Button
-            on:click={select("female")}
-            class={!loading && "teal white-text"}
-            depressed
-          >Nữ</Button
-          >
-          <Button
-            on:click={select("both")}
-            disabled={loading}
-            class={!loading && "teal white-text"}
-            depressed
-          >Chung</Button
-          >
-        {/if}
-
-        <p>{loading ? "Loading...." : date}</p>
-      </div>
-    </Route>
-  </Router>
+        <TealButton disabled={loading} on:click={select("male")} text="Nam" />
+        <TealButton disabled={loading} on:click={select("female")} text="Nữ" />
+        <TealButton disabled={loading} on:click={select("both")} text="Chung" />
+        <div class="mt-8">
+          {#if loading}
+            <div class="flex justify-center">
+              <Moon color="#16BDCA" class="mx-auto" />
+            </div>
+          {:else}
+            <Caption text={date} {type} />
+          {/if}
+        </div>
+      </Route>
+    </Router>
+  </body>
+  <footer class="mt-auto p-3 text-teal-400 text-xs sm:text-sm">Built with <Mongodb /> MongoDB  - <Azurefunctions class="inline"/> Azure Function -   <Svelte class="inline"/> Svelte</footer>
 </main>
