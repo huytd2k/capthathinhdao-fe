@@ -2,9 +2,12 @@
   import { onMount } from "svelte";
   import axios from "axios";
   import { Button } from "svelte-materialify";
-  export type quoteType = "male" | "female" | "both";
+  import { Router, Link, Route } from "svelte-routing";
+  import AddQuote from "./add-quote/AddQuote.svelte";
+  export let url = "";
+
+  type quoteType = "male" | "female" | "both";
   export let date;
-  export let type: quoteType;
   let loading: boolean = true;
 
   onMount(async () => {
@@ -27,31 +30,40 @@
 </script>
 
 <main>
-  <h1>Capthathinhdao</h1>
-  <br />
-  {#if !loading}
-    <Button
-      on:click={select("male")}
-      disabled={loading}
-      class="teal white-text"
-      depressed
-    >Nam</Button
-    >
-    <Button
-      on:click={select("female")}
-      class={!loading && "teal white-text"}
-      depressed
-    >Nữ</Button
-    >
-    <Button
-      on:click={select("both")}
-      disabled={loading}
-      class={!loading && "teal white-text"}
-      depressed
-    >Chung</Button
-    >
-  {/if}
+  <Router {url}>
+  <Link to='/add'> Add </Link>
+    <Route path="/add">
+      <AddQuote />
+    </Route>
+    <Route path="/">
+      <div>
+        <h1>Capthathinhdao</h1>
+        <br />
+        {#if !loading}
+          <Button
+            on:click={select("male")}
+            disabled={loading}
+            class="teal white-text"
+            depressed
+          >Nam</Button
+          >
+          <Button
+            on:click={select("female")}
+            class={!loading && "teal white-text"}
+            depressed
+          >Nữ</Button
+          >
+          <Button
+            on:click={select("both")}
+            disabled={loading}
+            class={!loading && "teal white-text"}
+            depressed
+          >Chung</Button
+          >
+        {/if}
 
-  <p>{loading ? "Loading...." : date}</p>
+        <p>{loading ? "Loading...." : date}</p>
+      </div>
+    </Route>
+  </Router>
 </main>
-
